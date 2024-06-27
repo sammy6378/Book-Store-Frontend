@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import './App.scss'
 import  { Tbook,Inputs } from './components/form'
 import Header from './components/header';
-import React from 'react';
 import { Nav } from './components/nav';
 import axios from "axios";
+
 // to be updated
 export const hideForm = () => {
   const form = document.querySelector('.form');
@@ -20,14 +20,22 @@ function App() {
   const booksPerPage = 6;
   
 
-const fetchData = async () =>{
-   await axios.get('https://book-store-backend-khc9.onrender.com/books')
-    .then(response =>setBooks(response.data))
-    .catch(error => console.error('Error:', error));
+// const fetchData = async () =>{
+//    await axios.get('https://book-store-backend-khc9.onrender.com/books')
+//     .then(response =>setBooks(response.data))
+//     .catch(error => console.error('Error:', error));
+// }
+
+const api = 'https://book-store-backend-khc9.onrender.com';
+
+const fetchBooks = async (): Promise<Tbook[]> => {
+    const response = await axios.get(`${api}/books`);
+    return response.data;
 }
 
+
 useEffect(()=>{
-  fetchData()
+  fetchBooks()
 },[])
 
 
