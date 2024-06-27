@@ -1,5 +1,5 @@
 
-import React from 'react';
+// import React from 'react';
 import  { useState } from 'react';
 
 
@@ -19,7 +19,7 @@ export function Inputs({ addBook}:any){
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
   const [price, setprice] = useState('');
-  const [bookId, setBookId] = useState('');
+  // const [bookId, setBookId] = useState('');
   
 
   const getData = (e:any) => {

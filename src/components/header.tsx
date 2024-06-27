@@ -1,6 +1,6 @@
 import me from '../assets/me.jpg'
 import bar from '../assets/bar.svg'
-import React from 'react';
+// import React from 'react';
 document.addEventListener('DOMContentLoaded', function() {
   const menuButton = document.querySelector('.img');
   menuButton?.addEventListener('click', showMenu);
