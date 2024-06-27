@@ -1,0 +1,35 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inter, sans-serif;
+}
+
+.form{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 1700;
+}
+
+
+
+@media screen and (max-width: 768px){
+  .form{
+    left: 0;
+    width: 100%;
+  }
+  
+  .left-nav{
+      position: absolute;
+      left:-50%;
+      width: 80%;
+      background:  rgb(2, 6, 23,1);
+      transition: left .4s ease-in-out;
+      z-index: 1500;
+  }
+  .show{
+    left: 0;
+    transition: left .4s ease-in-out;
+  }
+
+}
