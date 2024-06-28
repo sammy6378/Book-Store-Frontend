@@ -4,7 +4,7 @@ import './App.scss'
 import  { Tbook,Inputs } from './components/form'
 import Header from './components/header';
 import { Nav } from './components/nav';
-import axios from "axios";
+
 
 // to be updated
 export const hideForm = () => {
@@ -20,22 +20,16 @@ function App() {
   const booksPerPage = 6;
   
 
-// const fetchData = async () =>{
-//    await axios.get('https://book-store-backend-khc9.onrender.com/books')
-//     .then(response =>setBooks(response.data))
-//     .catch(error => console.error('Error:', error));
-// }
-
-const api = 'https://book-store-backend-khc9.onrender.com';
-
-const fetchBooks = async (): Promise<Tbook[]> => {
-    const response = await axios.get(`${api}/books`);
-    return response.data;
+const fetchData = async () =>{
+    fetch('https://book-store-backend-iahi.onrender.com/api/books')
+    .then(response => response.json())
+    .then(data => setBooks(data))
+    .catch(error => console.error('Unable to fetch the data:', error));
 }
-
+console.log(books)
 
 useEffect(()=>{
-  fetchBooks()
+  fetchData()
 },[])
 
 
