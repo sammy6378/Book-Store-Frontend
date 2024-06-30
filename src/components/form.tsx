@@ -3,14 +3,15 @@
 import  { useState } from 'react';
 
 
-export interface Tbook{
-    id:number,
-    name: string;
-    Author: string;
-    Year: number;
-    Price: number;
-    Description: string;
+export interface Tbook {
+  id: number;
+  name: string;
+  author: string; 
+  year: number; 
+  price: number;
+  description: string;
 }
+
 
 
 export function Inputs({ addBook}:any){
@@ -19,21 +20,17 @@ export function Inputs({ addBook}:any){
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
   const [price, setprice] = useState('');
-  // const [bookId, setBookId] = useState('');
-  
-
+ 
   const getData = (e:any) => {
     e.preventDefault();
 
-    const id = Math.floor(1000 + Math.random() * 9000);
 
     const newBook = {
-      id,
       name: bookName,
-      author,
-      year,
-      price,
-      description
+      author: author, 
+      year: Number(year), 
+      price: Number(price), 
+      description: description,
     };
 
     addBook(newBook);
@@ -47,10 +44,9 @@ export function Inputs({ addBook}:any){
   };
 
  
- 
   return(
     <>
-    <table className='table table-zebra table-xs my-5 border-collapse border border-slate-500'>
+    <table className='table table-zebra table-xs my-5 border-collapse border border-slate-500 overflow-hidden'>
           <thead className='bg-slate-700'>
             <tr className='text-sm text-cyan-400 border border-slate-600 py-5'>
               <th>Book Name</th>
@@ -118,7 +114,7 @@ export function Inputs({ addBook}:any){
   
 </table>
 <form onSubmit={getData}>
-    <button className='px-4 py-1 btn-sm bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500'>Add Record</button>
+    <button  className='px-4 py-1 btn-sm bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500'>Add Record</button>
 </form>
   </>
   )
